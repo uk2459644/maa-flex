@@ -1,82 +1,150 @@
-import Head from 'next/head'
+import axios from "axios";
+import InstitueFooter from '../components/instituecards/instituefooter'
+import InstituteFaq from '../components/instituecards/institutefaq';
+import InstituteHero from '../components/instituecards/institutehero';
+import InstituteNav from '../components/instituecards/institutenav'
+import InstituteResult from '../components/instituecards/instituteresult';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
-export default function Home() {
+import ServiceCarousel from "../components/instituecards/servicecarousel";
+import TopServices from "../components/instituecards/topservices";
+import WhyBeauty from "../components/instituecards/whybeauty";
+import WhyChooseBeauty from "../components/instituecards/whychoosebeauty";
+import ProffBeauty from "../components/instituecards/profbeauty";
+const dataurl = `https://pretty-parlour.herokuapp.com/beautiful/`;
+
+const fetchSitedata = async () =>
+  await axios
+    .get(`${dataurl}site-by-owner/1/`)
+    .then((res) => ({
+      error: null,
+      sitedata: res.data,
+    }))
+    .catch(() => ({
+      error: true,
+      sitedata: null,
+    }));
+
+const fetchSiteFeature = async () =>
+  await axios
+    .get(`${dataurl}feature-by/1/`)
+    .then((res) => ({
+      error: null,
+      featuredata: res.data,
+    }))
+    .catch(() => ({
+      error: true,
+      featuredata: null,
+    }));
+
+const fetchSiteContacts = async () =>
+  await axios
+    .get(`${dataurl}contact/1/`)
+    .then((res) => ({
+      error: null,
+      contactsdata: res.data,
+    }))
+    .catch(() => ({
+      error: true,
+      contactsdata: null,
+    }));
+
+const fetchSiteFaq = async () =>
+  await axios
+    .get(`${dataurl}faq/1/`)
+    .then((res) => ({
+      error: null,
+      faqdata: res.data,
+    }))
+    .catch(() => ({
+      error: true,
+      faqdata: null,
+    }));
+
+  const fetchTopService = async () =>
+  await axios
+    .get(`${dataurl}top-services/1/`)
+    .then((res) => ({
+      error: null,
+      topdata: res.data,
+    }))
+    .catch(() => ({
+      error: true,
+      topdata: null,
+    }));
+export async function getServerSideProps(context) {
+  const sitedata = await fetchSitedata();
+  const featuredata = await fetchSiteFeature();
+  const faqdata = await fetchSiteFaq();
+  const contactsdata = await fetchSiteContacts();
+  const topdata = await fetchTopService();
+
+  return {
+    props: {
+      sitedata,
+      featuredata,
+      faqdata,
+      contactsdata,
+      topdata
+    },
+  //  revalidate: 3600,
+  };
+}
+
+export default function Home({ sitedata, featuredata, faqdata, contactsdata,topdata }) {
+  console.log(`${contactsdata.contactsdata}`);
+  console.log(`${featuredata.featuredata}`);
+  console.log(`${sitedata.sitedata}`);
+  console.log(`${faqdata.faqdata}`);
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <div>
+      <InstituteNav />
+      {
+        topdata.topdata != null ? (
+          <div>
+             <TopServices items={topdata.topdata} />
+            </div>
+        ):(
+          <div>
+            <h2>Data for top services is  not loading</h2>
+            </div>
+        )
+      }
+     {/* {
+         sitedata.sitedata != null ? (
+          <div>
+              <InstituteHero item={sitedata.sitedata[0]} />
+            </div>
+        ):(
+          <div>
+            <h2>Data for hero component is  not loading</h2>
+            </div>
+        )
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
+     } */}
+     {
+        featuredata.featuredata != null ? (
+          <div>
+              <ServiceCarousel items={featuredata.featuredata.slice(0,8)} />
+            </div>
+        ):(
+          <div>
+            <h2>Data for features are  not loading</h2>
+            </div>
+        )
 
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="p-3 font-mono text-lg bg-gray-100 rounded-md">
-            pages/index.js
-          </code>
-        </p>
+     }
+     
+     
+      <WhyBeauty />
+      {/* <InstituteResult items={featuredata.featuredata.slice(0,8)} /> */}
+      <ProffBeauty />
+      <WhyChooseBeauty />
 
-        <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-        <a
-          className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
-        </a>
-      </footer>
+      {/* <InstituteFaq items={faqdata.faqdata} /> */}
+      <InstitueFooter />
     </div>
-  )
+  );
 }
