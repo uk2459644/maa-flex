@@ -112,7 +112,7 @@ export default function Home({ sitedata, featuredata, faqdata, contactsdata,topd
             </div>
         )
       }
-     {/* {
+     {
          sitedata.sitedata != null ? (
           <div>
               <InstituteHero item={sitedata.sitedata[0]} />
@@ -123,7 +123,7 @@ export default function Home({ sitedata, featuredata, faqdata, contactsdata,topd
             </div>
         )
 
-     } */}
+     }
      {
         featuredata.featuredata != null ? (
           <div>
