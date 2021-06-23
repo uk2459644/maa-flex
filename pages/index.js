@@ -14,6 +14,7 @@ import WhyChooseBeauty from "../components/instituecards/whychoosebeauty";
 import ProffBeauty from "../components/instituecards/profbeauty";
 const dataurl = `https://pretty-parlour.herokuapp.com/beautiful/`;
 
+
 const fetchSitedata = async () =>
   await axios
     .get(`${dataurl}site-by-owner/1/`)
@@ -25,6 +26,19 @@ const fetchSitedata = async () =>
       error: true,
       sitedata: null,
     }));
+  
+  
+const fetchProfdata = async () =>
+await axios
+  .get(`${dataurl}site-prof/1/`)
+  .then((res) => ({
+    error: null,
+    profdata: res.data,
+  }))
+  .catch(() => ({
+    error: true,
+    profdata: null,
+  }));
 
 const fetchSiteFeature = async () =>
   await axios
@@ -73,12 +87,42 @@ const fetchSiteFaq = async () =>
       error: true,
       topdata: null,
     }));
+
+    
+const fetchWhyUsdata = async () =>
+await axios
+  .get(`${dataurl}whyus/1/`)
+  .then((res) => ({
+    error: null,
+    whyusdata: res.data,
+  }))
+  .catch(() => ({
+    error: true,
+    whyusdata: null,
+  }));
+
+const fetchWhyChoosedata = async () =>
+await axios
+  .get(`${dataurl}why-choose/1/`)
+  .then((res) => ({
+    error: null,
+    whychoosedata: res.data,
+  }))
+  .catch(() => ({
+    error: true,
+    whychoosedata: null,
+  }));
+
 export async function getServerSideProps(context) {
   const sitedata = await fetchSitedata();
   const featuredata = await fetchSiteFeature();
   const faqdata = await fetchSiteFaq();
   const contactsdata = await fetchSiteContacts();
   const topdata = await fetchTopService();
+  const profdata = await fetchProfdata();
+  const whyusdata = await fetchWhyUsdata();
+  const whychoosedata = await fetchWhyChoosedata();
+
 
   return {
     props: {
@@ -86,13 +130,16 @@ export async function getServerSideProps(context) {
       featuredata,
       faqdata,
       contactsdata,
-      topdata
+      topdata,
+      profdata,
+      whyusdata,
+      whychoosedata,
     },
   //  revalidate: 3600,
   };
 }
 
-export default function Home({ sitedata, featuredata, faqdata, contactsdata,topdata }) {
+export default function Home({whyusdata, whychoosedata, sitedata, featuredata, faqdata, contactsdata,topdata,profdata }) {
   console.log(`${contactsdata.contactsdata}`);
   console.log(`${featuredata.featuredata}`);
   console.log(`${sitedata.sitedata}`);
@@ -137,11 +184,38 @@ export default function Home({ sitedata, featuredata, faqdata, contactsdata,topd
 
      }
      
-     
-      <WhyBeauty />
+     {whyusdata.whyusdata != null ? (
+        <div>
+          <WhyBeauty items={whyusdata.whyusdata} />
+        </div>
+      ) : (
+        <div>
+          <h2>Why us data is not loaded.</h2>
+        </div>
+      )}
+
       {/* <InstituteResult items={featuredata.featuredata.slice(0,8)} /> */}
-      <ProffBeauty />
-      <WhyChooseBeauty />
+      {
+        profdata.profdata != null ? (
+          <div>
+             <ProffBeauty item={profdata.profdata[0]} />
+            </div>
+
+        ):(
+          <div>
+            <h2>Prof Data is not available.</h2>
+            </div>
+        )
+      }
+      {whychoosedata.whychoosedata != null ? (
+        <div>
+          <WhyChooseBeauty items={whychoosedata.whychoosedata} />
+        </div>
+      ) : (
+        <div>
+          <h2>Why Choose data not loaded.</h2>
+        </div>
+      )}
 
       {/* <InstituteFaq items={faqdata.faqdata} /> */}
       <InstitueFooter />
