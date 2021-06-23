@@ -11,7 +11,8 @@ export default function InstituteNav () {
         <div class="px-4 py-6 mx-auto lg:py-8 sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
           <div class="relative flex items-center justify-between lg:justify-center lg:space-x-16">
             <ul class="flex items-center hidden space-x-8 lg:flex">
-              {/* <li>
+              {/*
+               <li>
                 <a
                   href="/institute/coaching-testlist/coaching-testlist-index"
                   aria-label="Our product"
@@ -40,7 +41,8 @@ export default function InstituteNav () {
                 >
                   Notes
                 </a>
-              </li> */}
+              </li>
+               */}
                <li>
                 <a
                   href="/"
@@ -104,7 +106,7 @@ export default function InstituteNav () {
                 <rect x="14" y="11" width="7" height="12" />
               </svg>
               <span class="ml-2 text-xl font-bold tracking-wide text-red-400 uppercase">
-                Being Beautiful
+               Maa flex printing
               </span>
             </a>
             <ul class="flex items-center hidden space-x-8 lg:flex">
@@ -138,7 +140,8 @@ export default function InstituteNav () {
                   Contact Us
                 </a>
               </li>
-              {/* <li>
+              {/* 
+              <li>
                 <a
                   href="/institute/coaching-signin/coaching-signin-index"
                   aria-label="Sign In"
@@ -147,7 +150,8 @@ export default function InstituteNav () {
                 >
                   Sign In
                 </a>
-              </li> */}
+              </li> 
+              */}
             </ul>
             <div class="lg:hidden">
               <button
@@ -198,7 +202,7 @@ export default function InstituteNav () {
                             <rect x="14" y="11" width="7" height="12" />
                           </svg>
                           <span class="ml-2 text-xl font-bold tracking-wide text-red-400 uppercase">
-                          Being Beautiful
+                          Maa flex printing
                           </span>
                         </a>
                       </div>
@@ -220,7 +224,8 @@ export default function InstituteNav () {
                     </div>
                     <nav>
                       <ul class="space-y-4 z-6">
-                        {/* <li>
+                        {/* 
+                        <li>
                           <a
                             href="/institute/coaching-testlist/coaching-testlist-index"
                             aria-label="Test-List"
@@ -249,7 +254,8 @@ export default function InstituteNav () {
                           >
                             Notes
                           </a>
-                        </li> */}
+                        </li> 
+                        */}
                         <li>
                           <a
                             href="/"
@@ -320,7 +326,8 @@ export default function InstituteNav () {
                             Contact Us
                           </a>
                         </li>
-                        {/* <li>
+                        {/* 
+                        <li>
                           <a
                             href="/institute/coaching-signin/coaching-signin-index"
                             class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-white-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
@@ -329,7 +336,8 @@ export default function InstituteNav () {
                           >
                             Sign In
                           </a>
-                        </li> */}
+                        </li> 
+                        */}
                       </ul>
                     </nav>
                   </div>
