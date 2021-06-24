@@ -8,7 +8,7 @@ const dataurl = `https://pretty-parlour.herokuapp.com/beautiful/`;
 
 const fetchWhyUsdata = async () =>
   await axios
-    .get(`${dataurl}whyus/1/`)
+    .get(`${dataurl}whyus/2/`)
     .then((res) => ({
       error: null,
       whyusdata: res.data,
@@ -20,7 +20,7 @@ const fetchWhyUsdata = async () =>
 
 const fetchWhyChoosedata = async () =>
   await axios
-    .get(`${dataurl}why-choose/1/`)
+    .get(`${dataurl}why-choose/2/`)
     .then((res) => ({
       error: null,
       whychoosedata: res.data,

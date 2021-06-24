@@ -38,7 +38,7 @@ await axios
 export async function getStaticPaths() {
   // Call an external API endpoint to get posts
   const res = await fetch(
-    "https://pretty-parlour.herokuapp.com/beautiful/feature-by/1/"
+    "https://pretty-parlour.herokuapp.com/beautiful/feature-by/2/"
   );
   const posts = await res.json();
 

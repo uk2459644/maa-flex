@@ -8,7 +8,7 @@ const dataurl = `https://pretty-parlour.herokuapp.com/beautiful/`;
 
 const fetchSiteFeature = async () =>
   await axios
-    .get(`${dataurl}feature-by/1/`)
+    .get(`${dataurl}feature-by/2/`)
     .then((res) => ({
       error: null,
       featuredata: res.data,

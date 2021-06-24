@@ -17,7 +17,7 @@ const dataurl = `https://pretty-parlour.herokuapp.com/beautiful/`;
 
 const fetchSitedata = async () =>
   await axios
-    .get(`${dataurl}site-by-owner/1/`)
+    .get(`${dataurl}site-by-owner/2/`)
     .then((res) => ({
       error: null,
       sitedata: res.data,
@@ -30,7 +30,7 @@ const fetchSitedata = async () =>
   
 const fetchProfdata = async () =>
 await axios
-  .get(`${dataurl}site-prof/1/`)
+  .get(`${dataurl}site-prof/2/`)
   .then((res) => ({
     error: null,
     profdata: res.data,
@@ -42,7 +42,7 @@ await axios
 
 const fetchSiteFeature = async () =>
   await axios
-    .get(`${dataurl}feature-by/1/`)
+    .get(`${dataurl}feature-by/2/`)
     .then((res) => ({
       error: null,
       featuredata: res.data,
@@ -54,7 +54,7 @@ const fetchSiteFeature = async () =>
 
 const fetchSiteContacts = async () =>
   await axios
-    .get(`${dataurl}contact/1/`)
+    .get(`${dataurl}contact/2/`)
     .then((res) => ({
       error: null,
       contactsdata: res.data,
@@ -66,7 +66,7 @@ const fetchSiteContacts = async () =>
 
 const fetchSiteFaq = async () =>
   await axios
-    .get(`${dataurl}faq/1/`)
+    .get(`${dataurl}faq/2/`)
     .then((res) => ({
       error: null,
       faqdata: res.data,
@@ -78,7 +78,7 @@ const fetchSiteFaq = async () =>
 
   const fetchTopService = async () =>
   await axios
-    .get(`${dataurl}top-services/1/`)
+    .get(`${dataurl}top-services/2/`)
     .then((res) => ({
       error: null,
       topdata: res.data,
@@ -91,7 +91,7 @@ const fetchSiteFaq = async () =>
     
 const fetchWhyUsdata = async () =>
 await axios
-  .get(`${dataurl}whyus/1/`)
+  .get(`${dataurl}whyus/2/`)
   .then((res) => ({
     error: null,
     whyusdata: res.data,
@@ -103,7 +103,7 @@ await axios
 
 const fetchWhyChoosedata = async () =>
 await axios
-  .get(`${dataurl}why-choose/1/`)
+  .get(`${dataurl}why-choose/2/`)
   .then((res) => ({
     error: null,
     whychoosedata: res.data,
