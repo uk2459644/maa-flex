@@ -12,6 +12,7 @@ import TopServices from "../components/instituecards/topservices";
 import WhyBeauty from "../components/instituecards/whybeauty";
 import WhyChooseBeauty from "../components/instituecards/whychoosebeauty";
 import ProffBeauty from "../components/instituecards/profbeauty";
+import { InstituteReview } from "../components/instituecards/institutereview";
 const dataurl = `https://pretty-parlour.herokuapp.com/beautiful/`;
 
 
@@ -26,7 +27,18 @@ const fetchSitedata = async () =>
       error: true,
       sitedata: null,
     }));
-  
+
+    const fetchReview = async () =>
+    await axios
+      .get(`${dataurl}review/2/`)
+      .then((res) => ({
+        error: null,
+        reviewdata: res.data,
+      }))
+      .catch(() => ({
+        error: true,
+        reviewdata: null,
+      }));
   
 const fetchProfdata = async () =>
 await axios
@@ -122,6 +134,7 @@ export async function getServerSideProps(context) {
   const profdata = await fetchProfdata();
   const whyusdata = await fetchWhyUsdata();
   const whychoosedata = await fetchWhyChoosedata();
+  const reviewdata =await fetchReview();
 
 
   return {
@@ -134,12 +147,13 @@ export async function getServerSideProps(context) {
       profdata,
       whyusdata,
       whychoosedata,
+      reviewdata
     },
   //  revalidate: 3600,
   };
 }
 
-export default function Home({whyusdata, whychoosedata, sitedata, featuredata, faqdata, contactsdata,topdata,profdata }) {
+export default function Home({whyusdata,reviewdata, whychoosedata, sitedata, featuredata, faqdata, contactsdata,topdata,profdata }) {
   console.log(`${contactsdata.contactsdata}`);
   console.log(`${featuredata.featuredata}`);
   console.log(`${sitedata.sitedata}`);
@@ -191,6 +205,15 @@ export default function Home({whyusdata, whychoosedata, sitedata, featuredata, f
       ) : (
         <div>
           <h2>Why us data is not loaded.</h2>
+        </div>
+      )}
+        {reviewdata.reviewdata != null ? (
+        <div>
+          <InstituteReview items={reviewdata.reviewdata} />
+        </div>
+      ) : (
+        <div>
+          <h2>Review data is not loaded.</h2>
         </div>
       )}
 

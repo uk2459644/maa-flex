@@ -28,7 +28,7 @@ export default function BookServices() {
           <div class="flex flex-col overflow-hidden bg-white rounded-md shadow-lg max md:flex-row md:flex-1 lg:max-w-screen-md">
             <div class="p-4 py-6 text-white bg-blue-500 md:w-80 md:flex-shrink-0 md:flex md:flex-col md:items-center md:justify-evenly">
               <div class="my-3 text-4xl font-bold tracking-wider text-center">
-                <a href="#">BEING BEAUTIFUL</a>
+                <a href="#">Suman competitive class</a>
               </div>
               <p class="mt-6 font-normal text-center text-gray-300 md:mt-0"></p>
               <p class="flex flex-col items-center justify-center mt-10 text-center">

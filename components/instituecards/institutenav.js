@@ -106,7 +106,7 @@ export default function InstituteNav () {
                 <rect x="14" y="11" width="7" height="12" />
               </svg>
               <span class="ml-2 text-xl font-bold tracking-wide text-red-400 uppercase">
-               Maa flex printing
+              Suman competitive class
               </span>
             </a>
             <ul class="flex items-center hidden space-x-8 lg:flex">
@@ -202,7 +202,7 @@ export default function InstituteNav () {
                             <rect x="14" y="11" width="7" height="12" />
                           </svg>
                           <span class="ml-2 text-xl font-bold tracking-wide text-red-400 uppercase">
-                          Maa flex printing
+                          Suman competitive class
                           </span>
                         </a>
                       </div>
