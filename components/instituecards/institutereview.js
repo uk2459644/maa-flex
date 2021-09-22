@@ -29,7 +29,7 @@ export const InstituteReview = ({items}) => {
             </svg>
             <span className="relative">See,</span>
           </span>{" "}
-          what our students tell
+          our student's results
         </h2>
       </div>
       <div className="grid gap-10 mx-auto sm:grid-cols-2 lg:grid-cols-4 lg:max-w-screen-lg">

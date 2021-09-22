@@ -48,7 +48,7 @@ export default function TopServices({ items }) {
                  backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat',
                  width:'100%',
-                  backgroundSize: 'cover',}}
+                  backgroundSize: 'contain',}}
               >
                 <div class="flex flex-row items-end h-full w-full">
                   <div class="flex flex-col w-full pb-3 pt-10 px-3 bg-gradient-to-t from-black text-gray-200">
