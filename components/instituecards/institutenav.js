@@ -60,7 +60,7 @@ export default function InstituteNav () {
                   title="Book services"
                   class="font-medium tracking-wide text-red-400 transition-colors duration-200 hover:text-yellow-400"
                 >
-                 Book Services
+                 Book Test Series
                 </a>
               </li>
               <li>
@@ -273,7 +273,7 @@ export default function InstituteNav () {
                             title="Book services"
                             class="font-medium tracking-wide text-red-400 transition-colors duration-200 hover:text-deep-purple-accent-400"
                           >
-                           Book Services
+                           Book Test Series
                           </a>
                         </li>
                         <li>

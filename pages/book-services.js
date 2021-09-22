@@ -44,7 +44,7 @@ export default function BookServices() {
             </div>
             <div class="p-5 bg-white md:flex-1">
               <h3 class="my-4 text-2xl font-semibold text-gray-700">
-                Service Request
+               Request
               </h3>
               <div action="#" class="flex flex-col space-y-5">
                 <div class="flex flex-col space-y-1">
