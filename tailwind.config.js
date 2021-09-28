@@ -12,6 +12,9 @@ module.exports = {
         'sans': ["Oswald", ...defaultTheme.fontFamily.sans],
         
       },
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
+       }
     },
   },
   variants: {
