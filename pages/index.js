@@ -13,6 +13,7 @@ import WhyBeauty from "../components/instituecards/whybeauty";
 import WhyChooseBeauty from "../components/instituecards/whychoosebeauty";
 import ProffBeauty from "../components/instituecards/profbeauty";
 import { InstituteReview } from "../components/instituecards/institutereview";
+import HeroSection from "../components/instituecards/herosection";
 const dataurl = `https://pretty-parlour.herokuapp.com/beautiful/`;
 
 
@@ -165,7 +166,8 @@ export default function Home({whyusdata,reviewdata, whychoosedata, sitedata, fea
       {
         topdata.topdata != null ? (
           <div>
-             <TopServices items={topdata.topdata} />
+             {/* <TopServices items={topdata.topdata} /> */}
+             <HeroSection />
             </div>
         ):(
           <div>
