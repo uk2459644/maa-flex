@@ -34,7 +34,7 @@ export default function HeroSection(){
         ssr={true} // means to render carousel on server-side.
         infinite={true}
         autoPlay={true}
-        autoPlaySpeed={6000}
+        autoPlaySpeed={3000}
         keyBoardControl={true}
         transitionDuration={1000}
         responsive={responsive}
