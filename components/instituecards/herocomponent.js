@@ -9,13 +9,13 @@ export default function HeroComponent({item}){
 <div className="relative animate-ping-slow h-full  md:h-screen w-full flex items-center justify-start text-left bg-cover bg-center" 
 style={{
     backgroundImage:`url(${item.image})`,
-    backgroundSize:'cover',
+    backgroundSize:'contain',
     backgroundRepeat:'no-repeat',
    
 }}>
      
   <div className=" top-0 right-0 bottom-0 left-0 translate-y-96 opacity-75 "></div>
-  <main className="px-10 lg:px-24  w-screen z-10 bg-gray-900 opacity-90 p-4 m-8 transform  translate-y-32">
+  <main className="px-10 lg:px-24  w-screen z-10 bg-gray-900 opacity-90 p-4 m-8  transform  translate-y-32">
     <div className="text-center">
     <div class=" -inset-0.5 bg-gradient-to-r from-gray-600 to-gray-900 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
       <h2 className="text-4xl tracking-tight leading-10 font-extrabold sm:text-5xl text-white sm:leading-none md:text-6xl">
