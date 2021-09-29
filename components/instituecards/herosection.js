@@ -23,7 +23,7 @@ const responsive = {
   },
 };
 
-export default function HeroSection(){
+export default function HeroSection({ items }){
 
     return (
         <div>
@@ -34,14 +34,22 @@ export default function HeroSection(){
         ssr={true} // means to render carousel on server-side.
         infinite={true}
         autoPlay={true}
-        autoPlaySpeed={3000}
+        autoPlaySpeed={6000}
         keyBoardControl={true}
         transitionDuration={1000}
         responsive={responsive}
       >
-          <HeroComponent />
-          <HeroComponent />
-          <HeroComponent />
+        {
+          items.map((item,index)=>{
+            return (
+              <div key={index}>
+                 <HeroComponent item={item} />
+                </div>
+            )
+          })
+        }
+         
+      
       </Carousel>
 
         </div>

@@ -13,7 +13,17 @@ module.exports = {
         
       },
       animation: {
-        'spin-slow': 'spin 3s linear infinite',
+        'ping-slow': 'pong 7s ease-in-out infinite',
+       },
+       keyframes:{
+         pong:{
+           '100%':{
+             opacity:'0',
+           },
+           '0%, 20%, 50%, 80%':{
+             opacity:'1'
+           }
+         }
        }
     },
   },

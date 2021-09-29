@@ -167,7 +167,7 @@ export default function Home({whyusdata,reviewdata, whychoosedata, sitedata, fea
         topdata.topdata != null ? (
           <div>
              {/* <TopServices items={topdata.topdata} /> */}
-             <HeroSection />
+             <HeroSection items={topdata.topdata} />
             </div>
         ):(
           <div>
